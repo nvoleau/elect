@@ -1,0 +1,30 @@
+{
+    "data":[
+{"sexe":"F","nom":"AZAIEZ","prenom":"Ramza","adresse":"73 ALLÉE ALBERT CAMUS"},
+{"sexe":"F","nom":"AZAÏEZ","prenom":"Nada","adresse":"59 ALLÉE ALBERT CAMUS"},
+{"sexe":"F","nom":"BATAILLE","prenom":"Valérie Sylvie","adresse":"23 ALLÉE ALBERT CAMUS"},
+{"sexe":"M","nom":"BENTABET","prenom":"Mouhamed","adresse":"73 ALLÉE ALBERT CAMUS"},
+{"sexe":"F","nom":"BILLEMONT","prenom":"Estelle Marcelle Josiane","adresse":"141 ALLÉE ALBERT CAMUS"},
+{"sexe":"M","nom":"BILLEMONT","prenom":"Pascal","adresse":"141 ALLÉE ALBERT CAMUS"},
+{"sexe":"F","nom":"CAPPOEN","prenom":"Béatrice Odette Solange","adresse":"93 ALLÉE ALBERT CAMUS"},
+{"sexe":"F","nom":"CARRIOT","prenom":"Marion Jeannine Yolande","adresse":"23 ALLÉE ALBERT CAMUS"},
+{"sexe":"F","nom":"CATTINI","prenom":"Jennifer Fay","adresse":"93 ALLÉE ALBERT CAMUS"},
+{"sexe":"F","nom":"CATTINI","prenom":"Mélanie Lucette Jeanine","adresse":"93 ALLÉE ALBERT CAMUS"},
+{"sexe":"M","nom":"CHEVREMONT","prenom":"Jordane André","adresse":"93 ALLÉE ALBERT CAMUS"},
+{"sexe":"M","nom":"CHEVREMONT","prenom":"Julien Pascal","adresse":"93 ALLÉE ALBERT CAMUS"},
+{"sexe":"M","nom":"CHEVREMONT","prenom":"Pascal","adresse":"93 ALLÉE ALBERT CAMUS"},
+{"sexe":"M","nom":"CHEVREMONT","prenom":"Thibault Jean-Louis","adresse":"93 ALLÉE ALBERT CAMUS"},
+{"sexe":"M","nom":"COULIN","prenom":"Gérard André Raymond","adresse":"73 ALLÉE ALBERT CAMUS"},
+{"sexe":"F","nom":"DA FONSECA","prenom":"Sylvia Monique Gabrielle","adresse":"141 ALLÉE ALBERT CAMUS"},
+{"sexe":"M","nom":"DA SILVA","prenom":"Yvan Julien","adresse":"59 ALLÉE ALBERT CAMUS"},
+{"sexe":"M","nom":"DE WAGENEER","prenom":"Daniel","adresse":"73 ALLÉE ALBERT CAMUS"},
+{"sexe":"F","nom":"DEHAIS","prenom":"Edith Michelle","adresse":"141 ALLÉE ALBERT CAMUS"},
+{"sexe":"M","nom":"DESFORGES","prenom":"Eddy Pascal","adresse":"93 ALLÉE ALBERT CAMUS"},
+{"sexe":"M","nom":"DESFORGES","prenom":"Pascal Paul","adresse":"93 ALLÉE ALBERT CAMUS"},
+{"sexe":"M","nom":"DORNADIN","prenom":"Cédric","adresse":"73 ALLÉE ALBERT CAMUS"},
+{"sexe":"M","nom":"DORNADIN","prenom":"Frantz Vincent","adresse":"73 ALLÉE ALBERT CAMUS"},
+{"sexe":"M","nom":"DORNADIN","prenom":"Vincent Paul","adresse":"73 ALLÉE ALBERT CAMUS"},
+{"sexe":"F","nom":"FARGEIX","prenom":"Cléo Marthe Colette","adresse":"23 ALLÉE ALBERT CAMUS"}
+
+    ]
+}
