@@ -1,19 +1,28 @@
 import {Component} from '@angular/core';
 import { NgForm ,FormBuilder, ControlGroup, Validators } from '@angular/common';
-import {InputText,Dropdown,Button} from 'primeng/primeng';
+import {InputText,Dropdown,Button,InputSwitch,SelectButton,Rating} from 'primeng/primeng';
+import {TabView} from 'primeng/primeng';
+import {TabPanel} from 'primeng/primeng';
+import {FirebaseService} from '../service/firebase.service';
 
 
 
 @Component({
   selector: 'enquete',
   template: require('./enquete.template.html'),
-  directives: [InputText,Dropdown,Button]
+  directives: [InputText,Dropdown,Button,InputSwitch,SelectButton,TabView,TabPanel,Rating],
+  providers:[FirebaseService]
 })
 
 export class Enquete {
     
     enqueteLibreForm:ControlGroup;
     sexe = [{'label':'', 'value':''},{label:'Masculin',value:'Masculin'}, {label:'Feminin',value:'Feminin'}];
+    priorite = [{'label':'Emploi', 'value':'Emploi'},{label:'Economie',value:'Economie'}, {label:'Education',value:'Education'}
+    , {label:'Service public',value:'Service public'}
+    , {label:'Sécurité',value:'Sécurité'}
+    , {label:'Immigration',value:'Immigration'}
+    , {label:'Environnement',value:'Environnement'}];
     rue=[{'label':'', 'value':''},{'label':'ALLÉE ALFRED DE VIGNY', 'value':'ALLÉE ALFRED DE VIGNY'},
 {'label':'ALLÉE AUGUSTE COMTE', 'value':'ALLÉE AUGUSTE COMTE'},
 {'label':'ALLÉE BUFFON', 'value':'ALLÉE BUFFON'},
@@ -91,6 +100,13 @@ export class Enquete {
     
     onSubmit() {
          console.log( this.sondage);
+        //console.log(this.enqueteLibreForm.controls.nom.value);
+        this.firebaseService.setObject(this.sondage).subscribe();
+       
+    }
+    
+    constructor(private firebaseService:FirebaseService){
+         console.log( 'constructor');
         //console.log(this.enqueteLibreForm.controls.nom.value);
        
     }
