@@ -1,5 +1,10 @@
-<form [ngFormModel]="enqueteLibreForm" (ngSubmit)="onSubmit()">
-    <input ngControl="nom" type="nom" placeholder="Votre nom">
-    <input ngControl="prenom" type="password" placeholder="Votre prénom">
+<form #form="ngForm" (ngSubmit)="onSubmit()">
+  <fieldset ngControlGroup="identite">
+    <input type="text" pInputText [(ngModel)]="sondage.nom" placeholder="Votre nom" />
+    <input type="text" pInputText  [(ngModel)]="sondage.prenom" placeholder="Votre prénom"><br>
+    <label>Sexe</label> <p-dropdown [options]="sexe" [(ngModel)]="sondage.sexe" required></p-dropdown>
+   </fieldset>
+    <label>Adreese</label> <p-dropdown [options]="rue" [(ngModel)]="sondage.rue" required></p-dropdown>
+           
   <button type="submit">Save</button>
 </form>
