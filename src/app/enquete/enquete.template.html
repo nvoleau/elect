@@ -4,6 +4,7 @@
   <p-tabView>
     <p-tabPanel header="Identité">
         <fieldset ngControlGroup="identite">
+         
         <input type="text" pInputText [(ngModel)]="sondage.nom" placeholder="Votre nom" /><br>
         <input type="text" pInputText  [(ngModel)]="sondage.prenom" placeholder="Votre prénom"><br>
         <label>Sexe</label> <p-dropdown [options]="sexe" [(ngModel)]="sondage.sexe" required></p-dropdown><br>

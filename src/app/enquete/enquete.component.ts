@@ -5,6 +5,11 @@ import {TabView} from 'primeng/primeng';
 import {TabPanel} from 'primeng/primeng';
 import {FirebaseService} from '../service/firebase.service';
 
+import {CanActivate} from '@angular/router-deprecated';
+import {tokenNotExpired} from 'angular2-jwt';
+import {Auth} from '../auth/auth.service';
+
+import {Sondage} from './sondage.class';
 
 
 @Component({
@@ -13,6 +18,8 @@ import {FirebaseService} from '../service/firebase.service';
   directives: [InputText,Dropdown,Button,InputSwitch,SelectButton,TabView,TabPanel,Rating],
   providers:[FirebaseService]
 })
+
+@CanActivate(() => tokenNotExpired())
 
 export class Enquete {
     
@@ -95,18 +102,23 @@ export class Enquete {
 {'label':'SQUARE SULLY PRUDHOMME', 'value':'SQUARE SULLY PRUDHOMME'}
 ];
     
+
    
-    sondage : Object={};
+    //sondage : Object={};
+    sondage : Sondage;
     
     onSubmit() {
-         console.log( this.sondage);
+         
         //console.log(this.enqueteLibreForm.controls.nom.value);
+        this.sondage.owner= this.auth.user.nickname;
+        console.log( this.sondage);
         this.firebaseService.setObject(this.sondage).subscribe();
        
     }
     
-    constructor(private firebaseService:FirebaseService){
+    constructor(private firebaseService:FirebaseService,private auth: Auth){
          console.log( 'constructor');
+         this.sondage = new Sondage();
         //console.log(this.enqueteLibreForm.controls.nom.value);
        
     }
