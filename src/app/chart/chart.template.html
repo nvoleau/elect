@@ -23,11 +23,9 @@
     <div class="ui-grid-row">
         <p-lineChart [value]="data" width="640" height="320"></p-lineChart>
     </div>
-    <div class="ui-grid-row">
-        <button pButton type="button" (click)="onclickLibre()" label="Enquete libre"></button>
-         <button md-button [routerLink]=" ['Enquete'] ">Enquete</button>
-    </div>
-    <div class="ui-grid-row">
-        <button pButton type="button" (click)="onclickListe()" label="Enquete Sur liste"></button>
-    </div>
+   
+<br><br>
+  <button pButton type="button" (click)="callSondage()" label="Nouveau Sondage"></button>
+    
+
 </div>

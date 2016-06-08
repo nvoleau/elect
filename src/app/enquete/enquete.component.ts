@@ -5,7 +5,7 @@ import {TabView} from 'primeng/primeng';
 import {TabPanel} from 'primeng/primeng';
 import {FirebaseService} from '../service/firebase.service';
 
-import {CanActivate} from '@angular/router-deprecated';
+import {Router,CanActivate} from '@angular/router-deprecated';
 import {tokenNotExpired} from 'angular2-jwt';
 import {Auth} from '../auth/auth.service';
 
@@ -23,6 +23,9 @@ label {
   directives: [InputText,Dropdown,Button,InputSwitch,SelectButton,TabView,TabPanel,Rating,InputTextarea],
   providers:[FirebaseService]
 })
+
+
+@CanActivate(() => tokenNotExpired())
 
 export class Enquete {
     
@@ -112,13 +115,16 @@ export class Enquete {
     result:Object[];
     
     onSubmit() {
-         console.log( this.sondage);
+         //console.log( this.sondage);
         //console.log(this.enqueteLibreForm.controls.nom.value);
         this.firebaseService.setObject(this.sondage).subscribe();
        //this.firebaseService.setObject(this.sondage).subscribe();
+         // console.log( 'avant submit');
+       this.router.navigate(['Chart']);
+
     }
     
-    constructor(private firebaseService:FirebaseService, private auth:Auth ){
+    constructor(private firebaseService:FirebaseService, private auth:Auth,private router: Router){
          this.sondage.owner = this.auth.user.nickname;
     }
     

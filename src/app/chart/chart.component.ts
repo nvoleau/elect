@@ -1,6 +1,9 @@
 import {Component} from '@angular/core';
-import {DoughnutChart} from 'primeng/primeng';
-import {PieChart,BarChart,LineChart,Button} from 'primeng/primeng';
+import {DoughnutChart,PieChart,BarChart,LineChart,Button} from 'primeng/primeng';
+
+import {Router,CanActivate} from '@angular/router-deprecated';
+import {tokenNotExpired} from 'angular2-jwt';
+import {Auth} from '../auth/auth.service';
 
 
 @Component({
@@ -20,7 +23,7 @@ export class Chart{
 
     updated: boolean;
 
-    constructor() {
+    constructor(private router: Router) {
         this.data1 = [{
             value: 55,
             color: '#F7464A',
@@ -87,5 +90,9 @@ export class Chart{
     removeYellow() {
         this.data1.pop();
         this.updated = true;
+    }
+
+    callSondage(){
+         this.router.navigate(['Enquete']);
     }
 }

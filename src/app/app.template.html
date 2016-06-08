@@ -4,9 +4,9 @@
     <nav>      
       <button md-button [routerLink]=" ['Home'] ">Home</button>
       <button md-button [routerLink]=" ['Profile'] " *ngIf="auth.authenticated()">Profile</button>
-      <button md-button [routerLink]=" ['Chart'] ">Chart</button>
-      <button md-button [routerLink]=" ['Map'] ">Map</button>
-      <button md-button [routerLink]=" ['Enquete'] ">Enquete</button>
+      <button md-button [routerLink]=" ['Chart'] " *ngIf="auth.authenticated()">Chart</button>
+      <button md-button [routerLink]=" ['Map'] " *ngIf="auth.authenticated()">Map</button>
+      <button md-button [routerLink]=" ['Enquete'] " *ngIf="auth.authenticated()">Enquete</button>
       <button md-button (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
       <button md-button (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
     </nav>

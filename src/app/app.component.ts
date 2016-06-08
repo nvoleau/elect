@@ -27,7 +27,7 @@ import {Enquete} from './enquete';
   template: require('./app.template.html')
 })
 @RouteConfig([
-  { path: '/',      name: 'Index', component: Home, useAsDefault: true },
+  { path: '/',      name: 'Index', component: Enquete, useAsDefault: true },
   { path: '/home',  name: 'Home',  component: Home },
  { path: '/map',  name: 'Map',  component: Map },
   { path: '/tableenquete',  name: 'Enquete',  component: TableEnquete },
