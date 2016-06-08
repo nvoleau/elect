@@ -14,5 +14,12 @@ export class FirebaseService {
            // return this.http.put('https://pv-election.firebaseio.com/enquete.json',body)
             .map(response=>response.json())
         }
+
+        getAllObject(){
+            return this.http.get('https://pv-election.firebaseio.com/enquete.json')
+            .map(
+                (res:Response)=>res.json()
+                );
+        }
         
     }

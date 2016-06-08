@@ -5,14 +5,16 @@
     <p-tabPanel header="Identité">
         <fieldset ngControlGroup="identite">
          
-        <input type="text" pInputText [(ngModel)]="sondage.nom" placeholder="Votre nom" /><br>
-        <input type="text" pInputText  [(ngModel)]="sondage.prenom" placeholder="Votre prénom"><br>
-        <label>Sexe</label> <p-dropdown [options]="sexe" [(ngModel)]="sondage.sexe" required></p-dropdown><br>
+        <label>Nom : </label><input type="text" pInputText [(ngModel)]="sondage.nom"/><br>
+        <label>Prenom : </label><input type="text" pInputText  [(ngModel)]="sondage.prenom"><br>
+        <label>Sexe : </label> <p-selectButton [options]="sexe" [(ngModel)]="sondage.sexe"></p-selectButton><br><br>
       </fieldset>
       <fieldset ngControlGroup="Adresse">
-        <label>Adresse</label> <p-dropdown [options]="rue" [(ngModel)]="sondage.rue" required></p-dropdown><br>
-        <label>Etage</label>  <input type="text" pInputText [(ngModel)]="sondage.etage" placeholder="Etage" /><br>
-        <label>N° Appartement</label>  <input type="text" pInputText [(ngModel)]="sondage.appart" placeholder="Numéro Appartement" /><br>
+        <label>Adresse :</label> <p-dropdown [options]="rue" [(ngModel)]="sondage.rue" required [style]="{'width':'150px'}"></p-dropdown><br>
+        <label>Etage :</label>  <input type="text" pInputText [(ngModel)]="sondage.etage" placeholder="Etage" /><br>
+        <label>N° Appartement :</label>  <input type="text" pInputText [(ngModel)]="sondage.appart" placeholder="Numéro Appartement" /><br><br>
+
+         <label>Ouverture : </label> <p-selectButton [options]="open" [(ngModel)]="sondage.open"></p-selectButton><br><br>
         </fieldset>
        
     </p-tabPanel>
@@ -22,13 +24,27 @@
         <p-selectButton [options]="priorite" [(ngModel)]="sondage.priorite_3"></p-selectButton><br>
     </p-tabPanel>
     <p-tabPanel header="Les élus">
-       <p-rating [cancel]="false" stars=10 [(ngModel)]="sondage.confiance"></p-rating>  
+      <label>Je connais mon élu : </label> <p-selectButton [options]="ouinon" [(ngModel)]="sondage.connaissance"></p-selectButton><br>
+      <label>J'ai rencontré mon élu : </label> <p-selectButton [options]="ouinon" [(ngModel)]="sondage.vu_elu"></p-selectButton><br>
+      <label>Indice confiance : </label> <p-rating [cancel]="false" stars=10 [(ngModel)]="sondage.confiance"></p-rating>  <br>
+      <label>Indice satisfaction : </label> <p-rating [cancel]="false" stars=10 [(ngModel)]="sondage.satisfaction"></p-rating>  <br>
     </p-tabPanel>
+
+ <p-tabPanel header="Commentaires">
+     <label>Commentaires : </label><br><textarea rows="5" cols="30" pInputTextarea [(ngModel)]="sondage.commentaire"></textarea><br>
+    </p-tabPanel>
+
 </p-tabView>
   
- <p-inputSwitch onLabel="Ouvre" offLabel="Ouvre Pas" [(ngModel)]="sondage.open"></p-inputSwitch><br><br>
-        
-   
+<br><br>
+
+<label>Acquis : </label> <p-selectButton [options]="ouinon" [(ngModel)]="sondage.acquis"></p-selectButton><br>
+<label>A revoir : </label> <p-selectButton [options]="ouinon" [(ngModel)]="sondage.revoir"></p-selectButton><br>
            
-  <button type="submit">Save</button>
+<br><br>
+  <button pButton type="button" (click)="submit()" label="Enregistrer"></button>
+  
 </form>
+<br><br>
+<button pButton type="button" (click)="onGetAll()" label="Get All"></button>
+
