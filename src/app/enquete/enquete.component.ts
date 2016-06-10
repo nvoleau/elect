@@ -4,6 +4,8 @@ import {InputText,Dropdown,Button,InputSwitch,SelectButton,Rating,InputTextarea}
 import {TabView} from 'primeng/primeng';
 import {TabPanel} from 'primeng/primeng';
 import {FirebaseService} from '../service/firebase.service';
+import {SondageService} from '../service/sondage.service';
+import {Sondage} from '../enquete/sondage.class';
 
 import {Router,CanActivate} from '@angular/router-deprecated';
 import {tokenNotExpired} from 'angular2-jwt';
@@ -21,7 +23,7 @@ label {
   template: require('./enquete.template.html'),
   
   directives: [InputText,Dropdown,Button,InputSwitch,SelectButton,TabView,TabPanel,Rating,InputTextarea],
-  providers:[FirebaseService]
+  providers:[FirebaseService, SondageService]
 })
 
 
@@ -124,11 +126,11 @@ export class Enquete {
 
     }
     
-    constructor(private firebaseService:FirebaseService, private auth:Auth,private router: Router){
+    constructor(private firebaseService:FirebaseService, private auth:Auth,private router: Router, private _sondageService:SondageService){
          this.sondage.owner = this.auth.user.nickname;
     }
     
-    onGetAll(){
+    onGetAlltmp(){
         this.firebaseService.getAllObject().subscribe(
            data=>{
                //recup
@@ -141,11 +143,58 @@ export class Enquete {
             });
 
             console.log(dataWithKeys[0].sondage.nom); // This is a synchronized array
+            console.log(dataWithKeys[0].sondage); // This is a synchronized array
+
            }
   
+
         );
-        //console.log(this.result);
+                    console.log('*********************----');
+             console.log(this.sondageTmp);
+              console.log('*********************----2');
+
+
+this._sondageService.db.child('enquete').on('value', data => {
+            this.sondageTmp = data.val();
+        });
+         console.log('*********************----3');
+             console.log(this.sondageTmp);
+              console.log('*********************----4');
+
+
     }
+
+
+
+
+
+    onGetAll(){
+       
+
+this._sondageService.db.child('enquete').on('value', data => {
+            this.sondageTmp = data.val();
+        });
+         console.log('*********************----3');
+             console.log(this.sondageTmp);
+              console.log('*********************----4');
+
+
+    }
+
+sondageTmp:any;
+
+/** ngOnInit() {
+
+  this._sondageService.db.child('enquete').on('value', data => {
+            this.sondageTmp = data.val();
+        });
+        console.log('this.sondageTmp');
+        console.log(this.sondageTmp);
+}**/
+
+
+
+
    // get diagnostic() { return JSON.stringify(this.userform.value); }
     
 }

@@ -47,6 +47,7 @@
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyB-w-Ad6GejaDHUGVKiTCgbaMdiicHwoGY"></script>
 
 
+
   <!-- base url -->
   <base href="<%= webpackConfig.metadata.baseUrl %>">
 
@@ -78,6 +79,20 @@
   <script src="/webpack-dev-server.js"></script>
   <% } %>
   
+ <!-- pulling in firebase... -->  
+  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    //https://webcake.co/using-firebase-3-in-angular-2-and-ionic-2/
+    var config = {
+      apiKey: "AIzaSyDQ-6whj_lM2QIfGh6rAyAS0JI1aBOMwVU",
+    authDomain: "pv-election.firebaseapp.com",
+    databaseURL: "https://pv-election.firebaseio.com",
+    storageBucket: "pv-election.appspot.com",
+    };
+    firebase.initializeApp(config);
+  </script>
+
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </body>
