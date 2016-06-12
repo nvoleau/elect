@@ -28,7 +28,10 @@ const METADATA = webpackMerge(commonConfig.metadata, {
  *
  * See: http://webpack.github.io/docs/configuration.html#cli
  */
+  const autoprefixer = require('autoprefixer');
 module.exports = webpackMerge(commonConfig, {
+
+    postcss: [autoprefixer],  // this is inside module.exports object
 
   /**
    * Merged metadata from webpack.common.js for index.html
@@ -159,5 +162,8 @@ module.exports = webpackMerge(commonConfig, {
     clearImmediate: false,
     setImmediate: false
   }
+
+
+  
 
 });

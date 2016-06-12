@@ -1,10 +1,14 @@
 <div class="ui-widget-header ui-helper-clearfix" style="padding:4px 10px;border-bottom: 0 none">
     <i class="fa fa-search" style="float:left;margin:4px 4px 0 0"></i>
-    <input #gb type="text" pInputText size="50" style="float:left" placeholder="Global Filter">
+    <input #gb type="text" pInputText size="50" style="float:left" placeholder="Recherche">
 </div>
-<p-dataTable [value]="todos" [globalFilter]="gb">
+<p-dataTable [value]="todos" [globalFilter]="gb" scrollable="true" scrollHeight="50px">
+    <header></header>
     <p-column field="adresse" header="Adresse"></p-column>
      <p-column field="nom" header="Nom"></p-column>
-      <p-column field="prenom" header="Prenom"></p-column>
-       <p-column field="sexe" header="Sexe"></p-column>
+       <p-column styleClass="col-button">
+        <template let-todo="rowData">
+            <button type="button" pButton (click)="selectTodo(todo)" icon="fa-question"></button>
+        </template>
+    </p-column>
 </p-dataTable>

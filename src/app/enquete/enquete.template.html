@@ -10,7 +10,7 @@
         <label>Sexe : </label> <p-selectButton [options]="sexe" [(ngModel)]="sondage.sexe"></p-selectButton><br><br>
       </fieldset>
       <fieldset ngControlGroup="Adresse">
-        <label>Adresse :</label> <p-dropdown [options]="rue" [(ngModel)]="sondage.rue" required [style]="{'width':'150px'}"></p-dropdown><br>
+        <label>Adresse : </label><input type="text" size="50px" pInputText  [(ngModel)]="sondage.rue"><br>
         <label>Etage :</label>  <input type="text" pInputText [(ngModel)]="sondage.etage" placeholder="Etage" /><br>
         <label>N° Appartement :</label>  <input type="text" pInputText [(ngModel)]="sondage.appart" placeholder="Numéro Appartement" /><br><br>
 
@@ -38,13 +38,14 @@
   
 <br><br>
 
-<label>Acquis : </label> <p-selectButton [options]="ouinon" [(ngModel)]="sondage.acquis"></p-selectButton><br>
-<label>A revoir : </label> <p-selectButton [options]="ouinon" [(ngModel)]="sondage.revoir"></p-selectButton><br>
-           
+<p-panel>
+   <label>Acquis : </label> <p-selectButton [options]="ouinon" [(ngModel)]="sondage.acquis"></p-selectButton><br>
+   <label>A revoir : </label> <p-selectButton [options]="ouinon" [(ngModel)]="sondage.revoir"></p-selectButton><br>
+
+    <button pButton type="button" (click)="onSubmit()" label="Enregistrer"></button>
+
+</p-panel>          
 <br><br>
-  <button pButton type="button" (click)="onSubmit()" label="Enregistrer"></button>
-  
 </form>
-<br><br>
-<button pButton type="button" (click)="onGetAll()" label="Get All"></button>
+
 

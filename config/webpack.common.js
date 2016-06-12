@@ -138,6 +138,10 @@ module.exports = {
      */
     loaders: [
 
+       { test: /\.scss$/, loaders: ['style', 'css', 'postcss', 'sass'] },
+        { test: /\.(woff2?|ttf|eot|svg)$/, loader: 'url?limit=10000' },
+        // Bootstrap 4
+        { test: /bootstrap\/dist\/js\/umd\//, loader: 'imports?jQuery=jquery' },
       /*
        * Typescript loader support for .ts and Angular 2 async routes via .async.ts
        *

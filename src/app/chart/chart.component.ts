@@ -5,11 +5,14 @@ import {Router,CanActivate} from '@angular/router-deprecated';
 import {tokenNotExpired} from 'angular2-jwt';
 import {Auth} from '../auth/auth.service';
 
+import {SondageService} from '../service/sondage.service';
+
 
 @Component({
   selector: 'chart',
   template: require('./chart.template.html'),
   directives: [DoughnutChart,PieChart,LineChart,BarChart,Button]
+   providers:[SondageService]
 })
 export class Chart{
 
@@ -23,7 +26,11 @@ export class Chart{
 
     updated: boolean;
 
-    constructor(private router: Router) {
+    constructor(private router: Router,private _sondageService:SondageService   ) {
+
+console.log("ouvre chart"+this._sondageService.getNbBy("enquete","open","ouvre"));
+
+
         this.data1 = [{
             value: 55,
             color: '#F7464A',

@@ -1,16 +1,44 @@
 <header>
-  <md-toolbar color="primary">
+  <!--<md-toolbar>
     <h3>Election 2.0</h3>
     <nav>      
       <button md-button [routerLink]=" ['Home'] ">Home</button>
-      <button md-button [routerLink]=" ['Profile'] " *ngIf="auth.authenticated()">Profile</button>
       <button md-button [routerLink]=" ['Chart'] " *ngIf="auth.authenticated()">Chart</button>
-      <button md-button [routerLink]=" ['Map'] " *ngIf="auth.authenticated()">Map</button>
       <button md-button [routerLink]=" ['Enquete'] " *ngIf="auth.authenticated()">Enquete</button>
+      <button md-button [routerLink]=" ['Sonder'] " *ngIf="auth.authenticated()">A sonder</button>
       <button md-button (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
       <button md-button (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
     </nav>
-  </md-toolbar>
+  </md-toolbar>-->
+
+<md-toolbar>
+ <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Sondage</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a [routerLink]=" ['Home'] ">Home</a></li>
+            <li><a [routerLink]=" ['Chart'] " *ngIf="auth.authenticated()">Performance</a></li>
+             <li><a [routerLink]=" ['Enquete'] " *ngIf="auth.authenticated()">Sondage</a></li>
+              <li><a [routerLink]=" ['Sonder'] " *ngIf="auth.authenticated()">A sonder</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a (click)="auth.login()" *ngIf="!auth.authenticated()">Log I</a></li>
+            <li><a (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+</md-toolbar>
+
 </header>
 
 <main>
